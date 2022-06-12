@@ -1,0 +1,34 @@
+workers_per_gpu: 8
+amp_enabled: True
+
+train:
+  seed: 1588147245
+  deterministic: False
+  num_epochs: 20
+  batch_size: 1
+
+model:
+  name: 'spvcnn'
+  cr: 0.1
+
+data:
+  num_classes: 13
+  training_size: 30
+
+dataset:
+  root: "/home/zzh/projects/sensatUrban/dataset/sensatUrban/"
+  num_points: 100
+  voxel_size: 0.5
+
+criterion:
+  name: cross_entropy
+
+optimizer:
+  name: sgd
+  lr: 2.4e-1
+  weight_decay: 1.0e-4
+  momentum: 0.9
+  nesterov: true
+
+scheduler:
+  name: cosine_warmup
